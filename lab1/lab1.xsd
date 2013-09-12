@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <!-- Definitions of attributes -->
+    <xs:attribute name="id" type="xs:int"/>
+    <xs:attribute name="parentId" type="xs:int"/>
+    
+    <!-- Definitions of simple elements, quite nice to have them together in one place -->
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="email" type="xs:string"/>
+    <xs:element name="description" type="xs:string"/>
+    <xs:element name="justification" type="xs:string"/>
+    
+    <xs:element name="expertId" type="xs:int"/>
+    <xs:element name="expertAreaId" type="xs:int"/>
+    <xs:element name="authorExpertId" type="xs:int"/>
+    <xs:element name="recommendedExpertId" type="xs:int"/>
+    
+    <!-- Definitions of complex elements -->
+    <xs:element name="expert">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name"/>
+                <xs:element ref="email"/>
+            </xs:sequence>
+            <xs:attribute ref="id" use="required"/>
+        </xs:complexType>
+        
+        <xs:unique name="uniqueExpertId">
+            <xs:selector xpath="expert"/>
+            <xs:field xpath="@id"/>
+        </xs:unique>
+    </xs:element>
+    
+    <xs:element name="expertArea">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="description"/>
+            </xs:sequence>
+            <xs:attribute ref="id" use="required"/>
+            <xs:attribute ref="parentId"/>
+        </xs:complexType>
+        
+        <xs:unique name="uniqueExpertAreaId">
+            <xs:selector xpath="expertArea"/>
+            <xs:field xpath="@id"/>
+        </xs:unique>
+    </xs:element>
+    
+    <xs:element name="recommendation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="justification"/>
+                <xs:element ref="authorExpertId"/>
+                <xs:element ref="recommendedExpertId"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="expertise">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="expertId"/>
+                <xs:element ref="expertAreaId"/>
+            </xs:sequence>
+        </xs:complexType>
+        
+        <xs:key name="expertId">
+            <xs:selector xpath="expertise"/>
+            <xs:field xpath="expertId"/>
+        </xs:key>
+        
+        <xs:key name="expertAreaId">
+            <xs:selector xpath="expertise"/>
+            <xs:field xpath="expertAreaId"/>
+        </xs:key>
+        
+        <xs:keyref name="expertIdConstraint" refer="expertId">
+            <xs:selector xpath="./expert"/>
+            <xs:field xpath="@id"/>
+        </xs:keyref>
+        
+        <xs:keyref name="expertAreaIdConstraint" refer="expertAreaId">
+            <xs:selector xpath="./expertArea"/>
+            <xs:field xpath="@id"/>
+        </xs:keyref>
+    </xs:element>
+    
+    <!-- Document definition, lab1 is the root element -->
+    <xs:element name="lab1">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <xs:element name="experts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="expert" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="expertAreas">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="expertArea" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="expertises">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="expertise" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="recommendations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="recommendation" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

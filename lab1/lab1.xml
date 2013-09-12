@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lab1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="lab1.xsd">
+    <experts>
+        <expert id="1">
+            <name>Niclas Olofsson</name>
+            <email>nicol271@student.liu.se</email>
+        </expert>
+        <expert id="2">
+            <name>Holger Grenquist</name>
+            <email>holger@grenquist.se</email>
+        </expert>
+    </experts>
+    
+    <expertAreas>
+        <expertArea id="1">
+            <description>Computer Science</description>
+        </expertArea>
+        <expertArea id="2" parentId="1">
+            <description>Databases</description>
+        </expertArea>
+        <expertArea id="3" parentId="2">
+            <description>SQL</description>
+        </expertArea>
+        <expertArea id="3" parentId="1">
+            <description>Programming</description>
+        </expertArea>
+    </expertAreas>
+
+    <expertises>
+        <expertise>
+            <expertId>1</expertId>
+            <expertAreaId>45</expertAreaId>
+        </expertise>
+    </expertises>
+    
+    <recommendations>
+        <recommendation>
+            <justification>Has completed the TDDD43 LAB 1</justification>
+            <authorExpertId>1</authorExpertId>
+            <recommendedExpertId>2</recommendedExpertId>
+        </recommendation>
+    </recommendations>
+    
+    
+</lab1>
