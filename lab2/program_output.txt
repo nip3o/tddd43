@@ -1,0 +1,100 @@
+Publication
+
+  Artical
+
+    JournalArticle
+
+    TechnicalReport
+
+    ConferencePaper
+
+  Specification
+
+  Book
+
+  Manual
+
+  UnofficialPublication
+
+  Software
+
+Organization
+
+  School
+
+  Department
+      IDA
+
+  Program
+
+  Institute
+
+  ResearchGroup
+      ADIT
+      HCS
+      AIICS
+      SAS
+
+  University
+      Linköping_Universitet
+
+Person
+
+  Student
+
+    UndergraduateStudent
+        Harry_Potter
+
+    GraduateStudent
+
+  Worker
+
+    Assistant
+
+      TeachingAssistant
+
+      ResearchAssistant
+
+    AdministrativeStaff
+
+      Dean
+
+      ClericalStaff
+
+      SystemStaff
+
+      Director
+
+      Chair
+
+    Faculty
+
+      PostDoc
+
+        Lecturer
+
+      Professor
+
+        Dean
+
+        AssistantProfessor
+
+        VisitingProfessor
+
+        FullProfessor
+
+        Chair
+
+        AssociateProfessor
+            Patrick
+
+Work
+
+  Research
+      SemanticWeb
+      Ontologies
+      Database
+
+  Course
+      Witchcraft
+      Spells
