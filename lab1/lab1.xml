@@ -5,41 +5,77 @@
         <expert id="1">
             <name>Niclas Olofsson</name>
             <email>nicol271@student.liu.se</email>
+            <expertises>
+                <expertise>
+                    <expertAreaId>3</expertAreaId>
+                </expertise>
+                <expertise>
+                    <expertAreaId>4</expertAreaId>
+                </expertise>
+            </expertises>
         </expert>
         <expert id="2">
             <name>Holger Grenquist</name>
             <email>holger@grenquist.se</email>
+            <expertises>
+                <expertise>
+                    <expertAreaId>2</expertAreaId>
+                </expertise>
+            </expertises>
+        </expert>
+        <expert id="3">
+            <name>Arne Anka</name>
+            <email>arne@anka.se</email>
+            <expertises>
+                <expertise>
+                    <expertAreaId>1</expertAreaId>
+                </expertise>
+            </expertises>
         </expert>
     </experts>
     
     <expertAreas>
         <expertArea id="1">
             <description>Computer Science</description>
-        </expertArea>
-        <expertArea id="2" parentId="1">
-            <description>Databases</description>
-        </expertArea>
-        <expertArea id="3" parentId="2">
-            <description>SQL</description>
-        </expertArea>
-        <expertArea id="3" parentId="1">
-            <description>Programming</description>
+            <subAreas>
+                
+                <expertArea id="2">
+                    <description>Databases</description>
+                    <subAreas>
+                        <expertArea id="3">
+                            <description>SQL</description>
+                        </expertArea>
+                    </subAreas>
+                </expertArea>
+                
+                <expertArea id="4">
+                    <description>Programming</description>
+                </expertArea>
+                
+            </subAreas>
         </expertArea>
     </expertAreas>
-
-    <expertises>
-        <expertise>
-            <expertId>1</expertId>
-            <expertAreaId>45</expertAreaId>
-        </expertise>
-    </expertises>
     
     <recommendations>
+        
         <recommendation>
             <justification>Has completed the TDDD43 LAB 1</justification>
-            <authorExpertId>1</authorExpertId>
+            <authorExpertId>2</authorExpertId>
+            <recommendedExpertId>1</recommendedExpertId>
+        </recommendation>
+        
+        <recommendation>
+            <justification>Has given me a bar of chocolate!</justification>
+            <authorExpertId>3</authorExpertId>
             <recommendedExpertId>2</recommendedExpertId>
         </recommendation>
+        
+        <recommendation>
+            <justification>Test</justification>
+            <authorExpertId>1</authorExpertId>
+            <recommendedExpertId>3</recommendedExpertId>
+        </recommendation>
+        
     </recommendations>
     
     

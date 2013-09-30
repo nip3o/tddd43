@@ -22,12 +22,20 @@
             <xs:sequence>
                 <xs:element ref="name"/>
                 <xs:element ref="email"/>
+                <xs:element name="expertises" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="expertise" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
             <xs:attribute ref="id" use="required"/>
         </xs:complexType>
         
+        
         <xs:unique name="uniqueExpertId">
-            <xs:selector xpath="expert"/>
+            <xs:selector xpath="experts/expert"/>
             <xs:field xpath="@id"/>
         </xs:unique>
     </xs:element>
@@ -36,13 +44,19 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="description"/>
+                <xs:element name="subAreas" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="expertArea" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
             <xs:attribute ref="id" use="required"/>
-            <xs:attribute ref="parentId"/>
         </xs:complexType>
         
         <xs:unique name="uniqueExpertAreaId">
-            <xs:selector xpath="expertArea"/>
+            <xs:selector xpath="expertAreas/expertArea"/>
             <xs:field xpath="@id"/>
         </xs:unique>
     </xs:element>
@@ -60,7 +74,6 @@
     <xs:element name="expertise">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="expertId"/>
                 <xs:element ref="expertAreaId"/>
             </xs:sequence>
         </xs:complexType>
@@ -70,18 +83,18 @@
             <xs:field xpath="expertId"/>
         </xs:key>
         
-        <xs:key name="expertAreaId">
-            <xs:selector xpath="expertise"/>
-            <xs:field xpath="expertAreaId"/>
-        </xs:key>
-        
         <xs:keyref name="expertIdConstraint" refer="expertId">
-            <xs:selector xpath="./expert"/>
+            <xs:selector xpath="experts/expert"/>
             <xs:field xpath="@id"/>
         </xs:keyref>
         
+        <xs:key name="expertAreaId">
+            <xs:selector xpath="experts/expert/expertise"/>
+            <xs:field xpath="expertAreaId"/>
+        </xs:key>
+        
         <xs:keyref name="expertAreaIdConstraint" refer="expertAreaId">
-            <xs:selector xpath="./expertArea"/>
+            <xs:selector xpath="expertAreas/expertArea"/>
             <xs:field xpath="@id"/>
         </xs:keyref>
     </xs:element>
@@ -102,13 +115,6 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element ref="expertArea" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="expertises">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element ref="expertise" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
