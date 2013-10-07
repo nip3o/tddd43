@@ -6,30 +6,22 @@
             <name>Niclas Olofsson</name>
             <email>nicol271@student.liu.se</email>
             <expertises>
-                <expertise>
-                    <expertAreaId>3</expertAreaId>
-                </expertise>
-                <expertise>
-                    <expertAreaId>4</expertAreaId>
-                </expertise>
+                <expertise expertAreaId="3"></expertise>
+                <expertise expertAreaId="4"></expertise>
             </expertises>
         </expert>
         <expert id="2">
             <name>Holger Grenquist</name>
             <email>holger@grenquist.se</email>
             <expertises>
-                <expertise>
-                    <expertAreaId>2</expertAreaId>
-                </expertise>
+                <expertise expertAreaId="2"></expertise>
             </expertises>
         </expert>
         <expert id="3">
             <name>Arne Anka</name>
             <email>arne@anka.se</email>
             <expertises>
-                <expertise>
-                    <expertAreaId>1</expertAreaId>
-                </expertise>
+                <expertise expertAreaId="1"></expertise>
             </expertises>
         </expert>
     </experts>
@@ -37,27 +29,42 @@
     <expertAreas>
         <expertArea id="1">
             <description>Computer Science</description>
-            <subAreas>
-                
-                <expertArea id="2">
-                    <description>Databases</description>
-                    <subAreas>
-                        <expertArea id="3">
-                            <description>SQL</description>
-                        </expertArea>
-                    </subAreas>
-                </expertArea>
-                
-                <expertArea id="4">
-                    <description>Programming</description>
-                </expertArea>
-                
-            </subAreas>
+            <originatorId>2</originatorId>
+        </expertArea>
+        <expertArea id="2">
+            <description>Databases</description>
+            <originatorId>2</originatorId>
+        </expertArea>
+        <expertArea id="3">
+            <description>SQL</description>
+            <originatorId>2</originatorId>
+        </expertArea>
+        <expertArea id="4">
+            <description>Programming</description>
+            <originatorId>2</originatorId>
         </expertArea>
     </expertAreas>
     
+    <topicRelations>
+        <topicRelation>
+            <expertAreaId>2</expertAreaId>
+            <parentId>1</parentId>
+        </topicRelation>
+        <topicRelation>
+            <expertAreaId>3</expertAreaId>
+            <parentId>1</parentId>
+        </topicRelation>
+        <topicRelation>
+            <expertAreaId>3</expertAreaId>
+            <parentId>4</parentId>
+        </topicRelation>
+        <topicRelation>
+            <expertAreaId>4</expertAreaId>
+            <parentId>1</parentId>
+        </topicRelation>
+    </topicRelations>
+    
     <recommendations>
-        
         <recommendation>
             <justification>Has completed the TDDD43 LAB 1</justification>
             <authorExpertId>2</authorExpertId>

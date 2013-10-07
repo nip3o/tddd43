@@ -25,7 +25,7 @@ The best way is probably to use a combination of the two above.
 
 
 ### Question 5
-> How both models can be combined in this application? How the combined model can be stored? Which parts of the application would you create as rezlations, XML? Justify.
+> How both models can be combined in this application? How the combined model can be stored? Which parts of the application would you create as relations, XML? Justify.
 
 This is partially answered by Question 4 above. A combination of the XML and relation approaches is useful when we have a one-to-many-relation, since we can list the relation for each "many"-object, and refer to the "one"-object by a relation since it per definition is used by multiple related objects. 
 
